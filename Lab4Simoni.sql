@@ -8,8 +8,8 @@
 SELECT city 
 FROM Agents
 WHERE aid in (SELECT aid
-	          FROM Orders
-	          WHERE cid = 'c006' 
+	      FROM Orders
+	      WHERE cid = 'c006' 
              )
 ORDER BY city ASC; 
 
@@ -31,9 +31,9 @@ ORDER BY pid DESC;
 SELECT cid, name
 FROM Customers 
 WHERE cid NOT IN (SELECT cid
-		          FROM Orders
-		          WHERE aid = 'a01' 
-		         ); 
+		  FROM Orders
+		  WHERE aid = 'a01' 
+		 ); 
 
 -- Query 4
 
@@ -82,7 +82,7 @@ ORDER BY discount ASC;
 SELECT name
 FROM Customers
 WHERE discount in (SELECT discount
-	               FROM Customers
+	           FROM Customers
                    WHERE city in ('Duluth' , 'London' ) 
                   ); 
 
