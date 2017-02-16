@@ -78,17 +78,17 @@ ORDER BY discount ASC;
 
 -- Query 7
 
-
-SELECT name
-FROM Customers
-WHERE discount in (SELECT discount
-	           FROM Customers
-                   WHERE city in ('Duluth' , 'London' ) 
-                  ); 
+SELECT * 
+FROM customers
+WHERE discount in (SELECT DISTINCT discount 
+                   FROM customers 
+                   WHERE city in ('Duluth', 'London')
+                  )
+AND city not in ('Duluth', 'London');
 
 -- 8) Essay Question 
 
--- What are check constraints? 
+/* What are check constraints? 
 -- Check constraints are used to limit the value range that can be placed in a column. CHECK constraints enforce domain integrity by limiting the values that are accepted by one or more columns. You can create a CHECK constraint with any logical (Boolean) expression that returns TRUE or FALSE based on the logical operators. 
 
 -- Advantages of Check constraints?
@@ -110,4 +110,4 @@ WHERE discount in (SELECT discount
 -- );
 -- This would be a bad example of having check constraint as you cannot have a data type of text and then compare it with a numeric value. 
 
-
+*/
