@@ -79,9 +79,9 @@ ORDER BY discount ASC;
 -- Query 7
 
 SELECT * 
-FROM customers
+FROM Customers
 WHERE discount in (SELECT DISTINCT discount 
-                   FROM customers 
+                   FROM Customers 
                    WHERE city in ('Duluth', 'London')
                   )
 AND city not in ('Duluth', 'London');
