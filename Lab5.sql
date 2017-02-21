@@ -14,8 +14,8 @@ WHERE cid = 'c006'
 
 SELECT distinct Products.pid
 FROM Orders inner join Products on Orders.pid = Products.pid
-                       inner join Agents on Orders.aid = Agents.aid
-	           inner join Customers on Orders.cid = Customers.cid
+            inner join Agents on Orders.aid = Agents.aid
+	    inner join Customers on Orders.cid = Customers.cid
 WHERE Customers.city = 'Kyoto' 
 ORDER BY pid DESC
 ;
@@ -58,8 +58,8 @@ WHERE Customers.city = Agents.city
 SELECT Customers.name as "Customer Name" , Customers.city as "Customer City"
 FROM Customers 
 WHERE Customers.city in (SELECT city
-		                 FROM Products
-		                 GROUP BY City
-		                 ORDER BY count(pid) ASC
-		                )
+		         FROM Products
+		         GROUP BY City
+		         ORDER BY count(pid) ASC
+		        )
 ; 
