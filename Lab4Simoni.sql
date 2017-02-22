@@ -96,7 +96,7 @@ By using check constraints, I can ensure that my database only contains data tha
 
 Good Example: 
 Range of values for a salary column. 
-The range can be limited by creating a CHECK constraint that allows for only Data that ranges from $10,000 through $200,000. This would prevent salaries from being entered beyond the regular salary range. Salary >= 10000 AND salary <= 200000
+The range can be limited by creating a CHECK constraint that allows for only Data that ranges from $100,000 through $200,000. This would prevent salaries from being entered beyond the regular salary range. Salary >= 10000 AND salary <= 200000
 
 NOT NULL constraint → NOT NULL is exceptionally useful when we have a table with columns that are critical to the definition of that data structure. For instance, an account without a name would be potentially meaningless,
 
