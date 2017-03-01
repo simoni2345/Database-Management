@@ -3,13 +3,16 @@
 SELECT Customers.name, Customers.city
 FROM Customers
 WHERE city in (SELECT totalTable.city
-	       FROM (SELECT Products.city, count(city) as cityTotal
+	       FROM (SELECT Products.city, count(city) 
+		     as cityTotal
 		     FROM Products 
-		     GROUP BY Products.city) as totalTable
+		     GROUP BY Products.city)
+	       as totalTable
 inner join (SELECT max(cityTotal) as maxTotal 
       FROM (SELECT city as "City Name", count(city) as cityTotal 
             FROM Products
-            GROUP BY Products.city) as tempTable) as maximumTable
+            GROUP BY Products.city) as OrderedCity) 
+	       as maximumTable
 on totalTable.cityTotal = maximumTable.maxTotal);
 
 
@@ -18,7 +21,8 @@ on totalTable.cityTotal = maximumTable.maxTotal);
 SELECT Products.name, Products.priceUSD
 FROM Products 
 inner join (SELECT avg(priceUSD) as AverageUSD 
-            FROM Products) 
+            FROM Products
+	   ) 
             as AverageTable
       on AverageUSD < Products.priceUSD
       ORDER BY Products.name DESC; 
@@ -37,7 +41,8 @@ inner join (SELECT cid, coalesce(sum(totalUSD) , '0')
             as totalOrdered 
             FROM Orders 
             GROUP BY cid
-            )as totalTable on totalTable.cid = Customers.cid; 
+            )as totalTable
+on totalTable.cid = Customers.cid; 
 
 -- Query 5
 
@@ -51,12 +56,12 @@ AND   Agents.city = 'Tokyo';
 -- Query 6
 
 SELECT *
-FROM (SELECT Orders.*, Orders.qty * Products.priceUSD * (1-(discount/100)) AS realdollars
+FROM (SELECT Orders.*, Orders.qty * Products.priceUSD * (1-(discount/100)) AS actualdollars
       FROM Orders
       inner join Products on Orders.pid = Products.pid
       inner join Customers on Orders.cid = Customers.cid
       ) AS calcTable
-WHERE totalUSD != realdollars;
+WHERE totalUSD != actualdollars;
 
 -- Essay Question
 
@@ -67,20 +72,19 @@ row that matches on the “right” table. This means that NULLs are displayed. 
 first in the SQL join statement. Right outer join is pretty much the same thing as a left outer join, except that the row 
 from the right table are displayed in the result of the query, regardless of whether or not they have matching values in the 
 left table. 
-
-Example of Left outer join in CAP4 database:
-
-SELECT distinct Products.pid , Products.name
-FROM Products left join Orders on Products.pid = Orders.pid
-ORDER BY pid ASC
-; 
-
-
-Example of Right outer join in CAP4 database:
-
-SELECT distinct Products.pid , Products.name
-FROM Products right join Orders on Products.pid = Orders.pid
-ORDER BY pid ASC
-; 
-
 */
+
+--Example of Left outer join in CAP4 database:
+
+SELECT distinct Products.pid , Products.name
+FROM Products left outer join Orders on Products.pid = Orders.pid
+ORDER BY pid ASC
+; 
+
+-- Example of Right outer join in CAP4 database:
+
+SELECT distinct Products.pid , Products.name
+FROM Products right outer join Orders on Products.pid = Orders.pid
+ORDER BY pid ASC
+; 
+
