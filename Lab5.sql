@@ -14,7 +14,6 @@ WHERE cid = 'c006'
 
 SELECT distinct Products.pid
 FROM Orders inner join Products on Orders.pid = Products.pid
-            inner join Agents on Orders.aid = Agents.aid
 	    inner join Customers on Orders.cid = Customers.cid
 WHERE Customers.city = 'Kyoto' 
 ORDER BY pid DESC
