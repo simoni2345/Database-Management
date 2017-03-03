@@ -51,7 +51,7 @@ FROM Customers , Agents , Products , Orders
 WHERE Customers.cid = Orders.cid
 AND   Agents.aid = Orders.aid
 AND   Products.pid = Orders.pid
-AND   Agents.city = 'Tokyo';
+AND   Agents.city = 'Newark';
 
 -- Query 6
 
