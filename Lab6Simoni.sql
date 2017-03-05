@@ -19,13 +19,12 @@ on totalTable.cityTotal = maximumTable.maxTotal);
 -- Query 2
 
 SELECT Products.name, Products.priceUSD
-FROM Products 
-inner join (SELECT avg(priceUSD) as AverageUSD 
-            FROM Products
-	   ) 
-            as AverageTable
-      on AverageUSD < Products.priceUSD
-      ORDER BY Products.name DESC; 
+FROM Products inner join (SELECT avg(priceUSD) as AverageUSD 
+                          FROM Products
+	                 ) 
+                    as AverageTable
+                    on AverageUSD < Products.priceUSD
+                    ORDER BY Products.name DESC; 
 
 -- Query 3
 
