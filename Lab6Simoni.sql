@@ -88,3 +88,4 @@ FROM Products right outer join Orders on Products.pid = Orders.pid
 ORDER BY pid ASC
 ; 
 
+-- Corrections: Query 4
