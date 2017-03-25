@@ -62,10 +62,11 @@ FROM (SELECT Orders.*, Orders.qty * Products.priceUSD * (1-(discount/100)) AS ac
       ) AS calcTable
 WHERE totalUSD != actualdollars;
 
--- Essay Question
 
 
 /*
+Essay Question: 
+
 Left and Right outer joins:  A left outer join retains all of the rows of the “left” table, regardless of whether there is a 
 row that matches on the “right” table. This means that NULLs are displayed. The “left” table is the table that is written 
 first in the SQL join statement. Right outer join is pretty much the same thing as a left outer join, except that the row 
