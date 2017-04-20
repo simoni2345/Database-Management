@@ -7,6 +7,11 @@ emergency_contact_name VARCHAR(100) NOT NULL,
 emergency_contact_phone char(15) NOT NULL
 ); 
 
+/*
+Functional Dependencies:
+people_id --> first_name, last_name, phone_number, emergency_contact_name, emergency_contact_phone
+*/
+
 INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone )
 values ('Alan' , 'Labouseur', 8456728902,  'Tien', 8796783672);
 INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
@@ -56,6 +61,11 @@ people_id INT references people(people_id),
 start_date date NOT NULL
 );
 
+/*
+Functional Dependencies:
+member_id --> start_date 
+*/
+
 INSERT INTO members (people_id , start_date)
 values (2, '2014-08-12');
 INSERT INTO members (people_id , start_date)
@@ -92,6 +102,11 @@ CHECK (monthly_fee_usd >= 20),
 membership_expiration date NOT NULL
 );
 
+/*
+Functional Dependencies:
+member_id --> monthly_fee_usd, membership_expiration
+*/
+
 INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
 VALUES (1, 35, '2015-08-12');
 INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
@@ -127,6 +142,11 @@ people_id INT references people(people_id),
 start_date date NOT NULL
 );
 
+/*
+Functional Dependencies:
+instructor_id --> start_date
+*/
+
 
 INSERT INTO instructors (people_id , start_date)
 values (1, '2014-11-12');
@@ -151,6 +171,11 @@ monthly_salary_usd INT NOT NULL,
 CHECK (monthly_salary_usd >= 250),
 contract_end_date date NOT NULL
 );
+
+/*
+Functional Dependencies:
+people_id --> monthly_salary_usd, contract_end_date
+*/
 
 INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
 VALUES (1, 300, '2015-11-12'); 
