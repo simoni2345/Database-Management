@@ -1,198 +1,197 @@
+CREATE TYPE gen AS ENUM ('f', 'm');
 CREATE TABLE IF NOT EXISTS People (
 people_id SERIAL NOT NULL PRIMARY KEY, 
 first_name VARCHAR(100) NOT NULL,
 last_name VARCHAR(100) NOT NULL,
+gender gen, 
 phone_number char(15) NOT NULL,
 emergency_contact_name VARCHAR(100) NOT NULL,
 emergency_contact_phone char(15) NOT NULL
 ); 
 
-/*
-Functional Dependencies:
-people_id --> first_name, last_name, phone_number, emergency_contact_name, emergency_contact_phone
-*/
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone )
+values ('Alan' , 'Labouseur', 'm', 8456728902,  'Tien', 8796783672);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Bob' , 'Mendez', 'm', 7682678290, 'Alessia', 9167882678 );
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Grace' , 'Helbig', 'f', 2278993678, 'Kiana', 2987890825);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Emily' , 'Farell', 'f', 7256789256, 'Sammy', 7892456728);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Josiah' , 'Conway', 'm',  4567892678, 'Manny', 8926789035);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Matt' , 'Germano', 'm', 6789997829, 'Molly', 8678897826);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Samantha' , 'Payne', 'f', 3890786278, 'Zack', 5627890267);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('David' , 'Borak', 'm', 3678929036, 'Robert', 6708902836);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Nathaniel' , 'Vanderbilt', 'm', 4567892568, 'Darcy', 7835678920);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Blaire' , 'Wardolf', 'f', 89034567829, 'Nat', 4785619036);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Dan' , 'Humphrey', 'm', 3787828378, 'Aaron', 9278902847);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Karen' , 'Fillipeli', 'f', 5603892728, 'Tara', 8934567836);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Pam' , 'Beasley', 'f', 3678926738,'Elsa', 5693782256);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Jim' , 'Halpert', 'm', 7356784937, 'Charlie', 3490896678);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Dwight' , 'Schrute', 'm', 2126785567, 'Bryant', 9125678889);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Jeff' , 'Damon', 'm', 8452406178, 'Gary', 7467778926);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Rupert' , 'Fernandez', 'm', 8452873345, 'Elsa', 7467824490);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Hannah' , 'Marin', 'f', 9087895678, 'Ashley', 6458890345);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Wassila' , 'George', 'f', 7689906234, 'Elliot', 8785563345);
+INSERT INTO People (first_name , last_name, gender, phone_number, emergency_contact_name, emergency_contact_phone)
+values ('Katie' , 'Zulets', 'f', 9236678892, 'Diana', 7724456666);
 
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone )
-values ('Alan' , 'Labouseur', 8456728902,  'Tien', 8796783672);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Bob' , 'Mendez', 7682678290, 'Alessia', 9167882678 );
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Grace' , 'Helbig', 2278993678, 'Kiana', 2987890825);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Emily' , 'Farell', 7256789256, 'Sammy', 7892456728);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Josiah' , 'Conway', 4567892678, 'Manny', 8926789035);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Matt' , 'Germano', 6789997829, 'Molly', 8678897826);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Samantha' , 'Payne', 3890786278, 'Zack', 5627890267);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('David' , 'Borak', 3678929036, 'Robert', 6708902836);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Nathaniel' , 'Vanderbilt', 4567892568, 'Darcy', 7835678920);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Blaire' , 'Wardolf', 89034567829, 'Nat', 4785619036);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Dan' , 'Humphrey', 3787828378, 'Aaron', 9278902847);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Karen' , 'Fillipeli', 5603892728, 'Tara', 8934567836);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Pam' , 'Beasley', 3678926738,'Elsa', 5693782256);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Jim' , 'Halpert', 7356784937, 'Charlie', 3490896678);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Dwight' , 'Schrute', 2126785567, 'Bryant', 9125678889);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Jeff' , 'Damon', 8452406178, 'Gary', 7467778926);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Rupert' , 'Fernandez', 8452873345, 'Elsa', 7467824490);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Hannah' , 'Marin', 9087895678, 'Ashley', 6458890345);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Wassila' , 'George', 7689906234, 'Elliot', 8785563345);
-INSERT INTO People (first_name , last_name, phone_number, emergency_contact_name, emergency_contact_phone)
-values ('Katie' , 'Zulets', 9236678892, 'Diana', 7724456666);
-
-SELECT * FROM People; 
-
+SELECT*FROM People;
+ 
 CREATE TABLE IF NOT EXISTS members (
-member_id SERIAL NOT NULL PRIMARY KEY,
-people_id INT references people(people_id),
+member_id INT references people(people_id) PRIMARY KEY,
 start_date date NOT NULL
 );
 
-/*
-Functional Dependencies:
-member_id --> start_date 
-*/
 
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (2, '2014-08-12');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (3, '2017-01-01');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (5, '2015-04-09');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (6, '2014-08-09');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (8, '2015-10-05');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (9, '2014-07-17');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (10, '2015-02-09');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (12, '2017-01-23');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (13, '2016-06-05');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (14, '2014-11-04');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (15, '2014-10-05');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (16, '2016-03-19');
-INSERT INTO members (people_id , start_date)
+INSERT INTO members (member_id , start_date)
 values (17, '2015-10-05');
 
 SELECT * FROM members;
 
+
+CREATE TYPE payment AS ENUM ('credit', 'debit', 'cash');
 CREATE TABLE IF NOT EXISTS members_info (
 member_id INT references members(member_id),
-monthly_fee_usd INT NOT NULL,
-CHECK (monthly_fee_usd >= 20),
+monthly_fee_usd money NOT NULL,
+payment_method payment, 
+CHECK (monthly_fee_usd > '20'),
 membership_expiration date NOT NULL
 );
 
-/*
-Functional Dependencies:
-member_id --> monthly_fee_usd, membership_expiration
-*/
-
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (1, 35, '2015-08-12');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (2, 30, '2018-01-01');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (3, 40, '2016-04-09');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (4, 40, '2015-08-09');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (5, 35, '2016-10-05');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (6, 30, '2015-07-17');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (7, 35, '2016-02-09');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (8, 45, '2018-01-23');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (9, 45, '2017-06-05');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (10, 30, '2015-11-04');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (11, 30, '2015-10-05');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (12, 40, '2017-03-19');
-INSERT INTO members_info (member_id, monthly_fee_usd, membership_expiration)
-VALUES (13, 35, '2016-10-05');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (2, 35, 'credit', '2015-08-12');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (3, 30, 'credit', '2018-01-01');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (5, 40, 'cash', '2016-04-09');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (6, 40, 'debit', '2015-08-09');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (8, 35, 'cash', '2016-10-05');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (9, 30, 'credit', '2015-07-17');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (10, 35, 'debit', '2016-02-09');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (12, 45, 'cash', '2018-01-23');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (13, 45, 'credit', '2017-06-05');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (14, 30, 'debit', '2015-11-04');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (15, 30, 'credit', '2015-10-05');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (16, 40, 'credit', '2017-03-19');
+INSERT INTO members_info (member_id, monthly_fee_usd, payment_method, membership_expiration)
+VALUES (17, 35, 'cash', '2016-10-05');
 
 SELECT * FROM members_info; 
 
+
+
+DROP VIEW IF EXISTS ptyp;
+CREATE OR REPLACE VIEW ptype AS
+SELECT first_name, payment_method
+FROM People
+INNER JOIN Members
+ON people.people_id = Members.member_id
+INNER JOIN members_info
+ON Members.member_id = members_info.member_id
+WHERE payment_method = 'credit';
+SELECT * FROM ptype;
+
+
 CREATE TABLE IF NOT EXISTS instructors (
-instructor_id SERIAL NOT NULL PRIMARY KEY,
-people_id INT references people(people_id),
+instructor_id INT references people(people_id) PRIMARY KEY,
 start_date date NOT NULL
 );
 
-/*
-Functional Dependencies:
-instructor_id --> start_date
-*/
-
-
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (1, '2014-11-12');
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (4, '2016-08-06');
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (7, '2015-04-07');
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (11, '2014-10-18');
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (18, '2015-05-16');
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (19, '2014-09-05');
-INSERT INTO instructors (people_id , start_date)
+INSERT INTO instructors (instructor_id , start_date)
 values (20, '2015-01-01');
 
-SELECT * FROM instructors;
+SELECT* FROM instructors;
 
+SELECT first_name, last_name, instructor_id, member_id
+FROM Instructors 
+LEFT OUTER JOIN People
+ON Instructors.instructor_id = People.people_id
+LEFT OUTER JOIN Members
+ON Members.member_id = People.people_id;  
+
+CREATE TYPE payment AS ENUM ('credit', 'debit', 'cash');
 CREATE TABLE IF NOT EXISTS instructors_info (
 instructor_id INT references instructors(instructor_id),
-monthly_salary_usd INT NOT NULL,
-CHECK (monthly_salary_usd >= 250),
+monthly_salary_usd money NOT NULL,
+CHECK (monthly_salary_usd >= '250'),
+payment_method payment, 
 contract_end_date date NOT NULL
 );
 
-/*
-Functional Dependencies:
-people_id --> monthly_salary_usd, contract_end_date
-*/
-
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (1, 300, '2015-11-12'); 
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (2, 350, '2017-08-06'); 
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (3, 350, '2016-04-07');
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (4, 300, '2015-10-18'); 
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (5, 350, '2016-05-16');
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (6, 300, '2015-09-05');   
-INSERT INTO instructors_info (instructor_id, monthly_salary_usd, contract_end_date)
-VALUES (7, 350, '2016-01-01'); 
-
-SELECT * FROM instructors_info; 
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (1, 300, 'credit', '2015-11-12'); 
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (4, 350, 'debit', '2017-08-06'); 
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (7, 350, 'credit', '2016-04-07');
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (11, 300, 'cash', '2015-10-18'); 
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (18, 350, 'debit', '2016-05-16');
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (19, 300, 'debit', '2015-09-05');   
+INSERT INTO instructors_info (instructor_id, monthly_salary_usd, payment_method, contract_end_date)
+VALUES (20, 350, 'credit', '2016-01-01'); 
 
 CREATE TABLE IF NOT EXISTS Season (
 season_id SERIAL NOT NULL PRIMARY KEY,
@@ -201,8 +200,6 @@ start_date date NOT NULL,
 end_date date NOT NULL
 );
 
-INSERT INTO Season (season_name, start_date, end_date)
-VALUES ('Spring2014', '01-01-2014', '05-01-2015');
 INSERT INTO Season (season_name, start_date, end_date)
 VALUES ('Summer2014', '05-01-2014', '08-25-2014');
 INSERT INTO Season (season_name, start_date, end_date)
@@ -221,9 +218,10 @@ INSERT INTO Season (season_name, start_date, end_date)
 VALUES ('Fall2016', '09-01-2016', '12-22-2016');
 INSERT INTO Season (season_name, start_date, end_date)
 VALUES ('Spring2017', '01-01-2017', '05-01-2017');
+INSERT INTO Season (season_name, start_date, end_date)
+VALUES ('Summer2017', '05-30-2017', '08-01-2017'); 
 
 SELECT * FROM Season; 
-
 
 CREATE TABLE IF NOT EXISTS existing_clubs (
 club_id SERIAL NOT NULL PRIMARY KEY,
@@ -237,7 +235,7 @@ VALUES (2, 'Basketball');
 INSERT INTO existing_clubs (club_id, club_name)
 VALUES (3, 'Soccer');
 INSERT INTO existing_clubs (club_id, club_name)
-VALUES (4, 'Drawing');
+VALUES (4, 'Ballet');
 INSERT INTO existing_clubs (club_id, club_name)
 VALUES (5, 'Table Tennis');
 INSERT INTO existing_clubs (club_id, club_name)
@@ -259,19 +257,17 @@ season_id INT REFERENCES Season(season_id) NOT NULL
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
 VALUES (1, 3, 1);
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
-VALUES (2, 1, 4);
+VALUES (4, 1, 4);
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
-VALUES (3, 4, 2);
+VALUES (7, 4, 2);
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
-VALUES (4, 8, 5);
+VALUES (11, 8, 5);
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
-VALUES (5, 7, 3);
+VALUES (18, 7, 3);
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
-VALUES (6, 2, 6);
+VALUES (19, 2, 9);
 INSERT INTO instructors_clubs (instructor_id, club_id, season_id)
-VALUES (7, 8, 10);
-
-SELECT * FROM instructors_clubs; 
+VALUES (20, 8, 9);
 
 CREATE TABLE IF NOT EXISTS members_clubs (
 mc_id serial NOT NULL PRIMARY KEY,
@@ -280,48 +276,47 @@ club_id INT REFERENCES existing_clubs(club_id) NOT NULL,
 season_id INT REFERENCES Season(season_id) NOT NULL
 );
 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (2, 3, 4); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (3, 1, 1); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (5, 4, 6); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (6, 2, 6); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (8, 3, 5); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (9, 6, 5); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (10, 5, 9); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (12, 8, 10); 
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (13, 7, 7);
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (14, 1, 5);
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (15, 2, 9);
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (16, 8, 10);
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (17, 5, 9);
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (17, 3, 4);
+INSERT INTO members_clubs (member_id, club_id, season_id)
+VALUES (14, 7, 5);
 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (1, 3, 4); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (2, 1, 1); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (3, 4, 6); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (4, 2, 6); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (5, 3, 5); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (6, 6, 5); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (7, 5, 3); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (8, 8, 10); 
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (9, 7, 7);
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (10, 1, 5);
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (11, 2, 2);
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (12, 8, 10);
-INSERT INTO members_clubs (member_id, club_id, season_id)
-VALUES (13, 5, 5);
+SELECT * FROM members_clubs;
 
-SELECT * FROM members_clubs; 
-
-DROP VIEW IF EXISTS ClubsThisSeason;
-CREATE VIEW ClubsThisSeason AS
-SELECT distinct club_name 
-FROM existing_clubs, members_clubs, Season
-WHERE existing_clubs.club_id = members_clubs.club_id
-AND members_clubs.season_id = season.season_id
-AND NOW() > season.start_date
-AND NOW() < season.end_date;
-
-SELECT * FROM ClubsThisSeason;
-
-SELECT * FROM season; 
+SELECT first_name, last_name
+FROM People
+WHERE people_id IN (SELECT instructor_id
+                    FROM Instructors
+                    WHERE instructor_id IN (SELECT instructor_id
+                                            FROM instructors_clubs
+                                            WHERE season_id = 9 )
+                                            );
 
 CREATE TABLE IF NOT EXISTS club_meetings(
 meeting_id SERIAL NOT NULL PRIMARY KEY,
@@ -330,10 +325,12 @@ start_time timestamp with time zone NOT NULL,
 description VARCHAR(255)
 );
 
+SELECT * FROM existing_clubs;
+
 INSERT INTO club_meetings (club_id, start_time, description)
-VALUES (2, '2014-09-01', 'Competition Details');
+VALUES (2, '2014-09-01 17:00:00', 'Competition Details');
 INSERT INTO club_meetings (club_id, start_time, description)
-VALUES (4, '2015-06-01', 'Art Competition Results');
+VALUES (4, '2015-06-01 11:00', 'Pratice before Finale');
 INSERT INTO club_meetings (club_id, start_time, description)
 VALUES (5, '2016-11-02', 'Choosing Partners');
 INSERT INTO club_meetings (club_id, start_time, description)
@@ -342,8 +339,6 @@ INSERT INTO club_meetings (club_id, start_time, description)
 VALUES (7, '2016-12-01', 'Upcoming Tournament Details');
 INSERT INTO club_meetings (club_id, start_time, description)
 VALUES (8, '2015-03-24', 'Routine Practice Deatils');
-
-SELECT * FROM club_meetings;
 
 CREATE TABLE IF NOT EXISTS club_events (
 event_id SERIAL NOT NULL PRIMARY KEY,
@@ -356,15 +351,13 @@ description VARCHAR(255)
 INSERT INTO club_events (club_id, start_time, event_title, description)
 VALUES (8, '2016-11-23 19:00:00', 'Ball 2016', 'A formal ball for all the members of the Hip Hop Dance Group');
 INSERT INTO club_events (club_id, start_time, event_title, description)
-VALUES (4, '2017-01-23 17:00:00', 'Appreciation Day', 'Appreciating Peer Work');
+VALUES (4, '2017-01-23 17:00:00', 'Appreciation Day', 'Appreciating your peers');
 INSERT INTO club_events (club_id, start_time, event_title, description)
 VALUES (1, '2015-08-18 15:30:00', 'FreeStyle 100m', 'Race');
 INSERT INTO club_events (club_id, start_time, event_title, description)
 VALUES (2, '2014-10-03 09:00:00', 'Boys Tournament', 'In-house Tournament Boys');
 INSERT INTO club_events (club_id, start_time, event_title, description)
 VALUES (6, '2016-05-17 16:00:00', 'Meet and Greet', NULL); 
-
-SELECT * FROM club_events;
 
 CREATE TABLE IF NOT EXISTS meeting_attendances (
 meeting_id INT REFERENCES club_meetings(meeting_id) NOT NULL,
@@ -373,23 +366,29 @@ PRIMARY KEY (meeting_id, member_id)
 );
 
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (1, 4);
+VALUES (1, 6);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (1, 11);
+VALUES (1, 15);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (2, 3);
+VALUES (2, 5);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (3, 7);
+VALUES (3, 10);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (3, 13);
+VALUES (3, 17);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (4, 2);
+VALUES (4, 3);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (5, 9);
+VALUES (4, 14);
 INSERT INTO meeting_attendances (meeting_id, member_id)
-VALUES (6, 8);
+VALUES (5, 13);
+INSERT INTO meeting_attendances (meeting_id, member_id)
+VALUES (5, 14);
+INSERT INTO meeting_attendances (meeting_id, member_id)
+VALUES (6, 12);
+INSERT INTO meeting_attendances (meeting_id, member_id)
+VALUES (5, 16);
 
-SELECT * FROM meeting_attendances;
+SELECT*FROM meeting_attendances; 
 
 CREATE TABLE IF NOT EXISTS event_attendances (
 event_id INT REFERENCES club_events(event_id) NOT NULL,
@@ -398,20 +397,186 @@ primary key (event_id, member_id)
 ); 
 
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (1, 8);
-INSERT INTO event_attendances (event_id, member_id)
 VALUES (1, 12);
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (2, 3);
+VALUES (1, 16);
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (3, 2);
+VALUES (2, 5);
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (3, 10);
+VALUES (3, 3);
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (4, 4);
+VALUES (3, 14);
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (4, 11);
+VALUES (4, 6);
 INSERT INTO event_attendances (event_id, member_id)
-VALUES (5, 6);
+VALUES (4, 15);
+INSERT INTO event_attendances (event_id, member_id)
+VALUES (5, 9);
 
-SELECT * FROM event_attendances; 
+
+CREATE TABLE IF NOT EXISTS equipment (
+equipment_id INT NOT NULL UNIQUE PRIMARY KEY, 
+equipment_name VARCHAR(255) NOT NULL
+);
+
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (1, 'swimming goggles');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (2, 'swimming cap');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (3, 'basketball');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (4, 'soccer ball');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (5, 'shin pads');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (6, 'Speakers');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (7, 'table tennis racket');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (8, 'ping pong ball'); 
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (9, 'badminton racket');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (10, 'shuttlecock');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (11, 'tennis racket');
+INSERT INTO equipment (equipment_id, equipment_name)
+VALUES (12, 'tennis ball green');
+
+CREATE TABLE IF NOT EXISTS ClubsEquipment (
+club_id INT REFERENCES existing_clubs(club_id) NOT NULL,
+equipment_id INT REFERENCES equipment(equipment_id) NOT NULL
+); 
+
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (1, 1);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (1, 2);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (2, 3);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (3, 4);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (3, 5);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (5, 7);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (5, 8);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (6, 9);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (6, 10);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (7, 11);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (7, 12);
+INSERT INTO ClubsEquipment (club_id, equipment_id) 
+VALUES (8, 6);
+
+-- Subqueries
+SELECT first_name, last_name
+FROM People
+WHERE people_id IN (SELECT member_id 
+                    FROM Members
+                    WHERE member_id IN (SELECT meeting_id
+			                 FROM meeting_attendances
+			                 WHERE meeting_id = 3)
+			                 );
+SELECT first_name, last_name
+FROM People
+WHERE people_id IN (SELECT instructor_id
+                    FROM Instructors
+                    WHERE instructor_id IN (SELECT instructor_id
+                                            FROM instructors_clubs
+                                            WHERE season_id = 9 )
+                                            );
+
+-- Views
+
+DROP VIEW IF EXISTS ClubsThisSeason;
+CREATE OR REPLACE VIEW ClubsThisSeason AS
+SELECT distinct club_name 
+FROM existing_clubs, members_clubs, Season
+WHERE existing_clubs.club_id = members_clubs.club_id
+AND members_clubs.season_id = season.season_id
+AND NOW() > season.start_date
+AND NOW() < season.end_date
+
+SELECT * FROM ClubsThisSeason;
+
+DROP VIEW IF EXISTS ClubEquipments;
+CREATE OR REPLACE VIEW ClubEquipments AS
+SELECT club_name, equipment_name
+FROM existing_clubs 
+INNER JOIN ClubsEquipment 
+ON existing_clubs.club_id = ClubsEquipment.club_id
+INNER JOIN Equipment
+ON Equipment.equipment_id = ClubsEquipment.equipment_id;
+
+SELECT * FROM ClubEquipments;
+
+DROP VIEW IF EXISTS ptyp;
+CREATE OR REPLACE VIEW ptype AS
+SELECT first_name, payment_method
+FROM People
+INNER JOIN Members
+ON people.people_id = Members.member_id
+INNER JOIN members_info
+ON Members.member_id = members_info.member_id
+WHERE payment_method = 'credit';
+
+SELECT * FROM ptype;
+
+CREATE OR REPLACE VIEW membersFall2015 AS
+ SELECT first_name, last_name, season_name
+ FROM People
+ INNER JOIN Members
+ ON People.people_id = Members.member_id
+ INNER JOIN members_clubs
+ ON Members.member_id = members_clubs.member_id
+ INNER JOIN Season
+ ON Season.season_id = members_clubs.season_id
+ WHERE season_name = 'Fall2015';
+ 
+ SELECT * FROM membersFall2015;
+
+-- inner and outer joins
+
+SELECT first_name, season_name
+FROM People
+INNER JOIN Instructors 
+ON Instructors.instructor_id = People.people_id
+INNER JOIN instructors_clubs
+ON Instructors.instructor_id = instructors_clubs.instructor_id
+INNER JOIN Season
+ON instructors_clubs.season_id = Season.season_id;
+
+
+SELECT first_name, start_date, membership_expiration, monthly_fee_usd
+FROM People
+INNER JOIN Members
+ON People.people_id = Members.member_id
+INNER JOIN members_info
+ON Members.member_id = members_info.member_id;
+
+
+SELECT club_name, equipment_name
+FROM existing_clubs
+FULL OUTER JOIN ClubsEquipment
+ON existing_clubs.club_id = ClubsEquipment.club_id
+FULL OUTER JOIN Equipment
+ON Equipment.equipment_id = ClubsEquipment.equipment_id;
+
+SELECT first_name, club_name
+FROM People
+LEFT JOIN Members
+ON People.people_id = Members.member_id
+FULL OUTER JOIN meeting_attendances
+ON Members.member_id = meeting_attendances.member_id
+FULL OUTER JOIN club_meetings
+ON meeting_attendances.meeting_id = club_meetings.meeting_id
+FULL OUTER JOIN existing_clubs
+ON club_meetings.club_id = existing_clubs.club_id;
+
+ -- Stored Procedures
